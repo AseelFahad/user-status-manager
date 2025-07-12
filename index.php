@@ -5,7 +5,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// إضافة مستخدم جديد
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $name = $_POST["name"];
     $age = $_POST["age"];
@@ -13,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $conn->query($sql);
 }
 
-// تبديل الحالة
 if (isset($_GET['toggle'])) {
     $id = $_GET['toggle'];
     $result = $conn->query("SELECT status FROM users WHERE id=$id");
@@ -24,7 +22,6 @@ if (isset($_GET['toggle'])) {
     exit;
 }
 
-// جلب كل المستخدمين
 $users = $conn->query("SELECT * FROM users");
 ?>
 
